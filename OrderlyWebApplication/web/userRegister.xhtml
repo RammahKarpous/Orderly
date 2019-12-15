@@ -14,8 +14,23 @@ and open the template in the editor.
   <h:body>
     <h:form>
       <div class="inputField">
+        <label for="firstName"><h:outputText value="First name" /></label>
+        <h:inputText id="firstName" value="" />
+      </div>
+      
+      <div class="inputField">
+        <label for="lastName"><h:outputText value="Last name" /></label>
+        <h:inputText id="lastName" value="" />
+      </div>
+      
+      <div class="inputField">
         <label for="emailAddress"><h:outputText value="Email address" /></label>
         <h:inputText id="emailAddress" value="" />
+      </div>
+      
+      <div class="inputField">
+        <label for="password"><h:outputText value="Password" /></label>
+        <h:inputText id="password" value="" />
       </div>
     </h:form>
   </h:body>
