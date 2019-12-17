@@ -9,10 +9,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CustomerGateway {
-  public boolean insert(CustomerDTO customer) {
+  public CustomerDTO find(String firstName, String lastName, String emailAddress) {
+    CustomerDTO cusDetails = null;
+    
+    try 
+    {
+      DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "orderlyUsername", "orderly-password");
+
+      String getDetails = "SELECT * FROM customers";
+    } 
+    catch(SQLException sqle) 
+    {
+
+    }
+    
+    return cusDetails;
+  }
+  
+  public boolean insert(CustomerDTO customer) 
+  {
     boolean customerInserted = false;
     
-    try {
+    try 
+    {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
       Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "orderlyUsername", "orderly-password");
       
@@ -29,7 +49,8 @@ public class CustomerGateway {
       statement.close();
       conn.close();
     }
-    catch (SQLException sqle) {
+    catch (SQLException sqle) 
+    {
       
     }
     

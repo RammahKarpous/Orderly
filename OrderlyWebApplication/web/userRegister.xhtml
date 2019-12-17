@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
   <head>
-    <title>TODO supply a title</title>
+    <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <h:body>
     <h:form>
       <div class="inputField">
         <label for="firstName"><h:outputText value="First name" /></label>
-        <h:inputText id="firstName" value="" />
+        <h:inputText id="firstName" value="#{addCustomer.firstName}" />
       </div>
       
       <div class="inputField">
         <label for="lastName"><h:outputText value="Last name" /></label>
-        <h:inputText id="lastName" value="" />
+        <h:inputText id="lastName" value="#{addCustomer.lastName}" />
       </div>
       
       <div class="inputField">
         <label for="emailAddress"><h:outputText value="Email address" /></label>
-        <h:inputText id="emailAddress" value="" />
+        <h:inputText id="emailAddress" value="#{addCustomer.emailAddress}" />
       </div>
       
       <div class="inputField">
         <label for="password"><h:outputText value="Password" /></label>
-        <h:inputText id="password" value="" />
+        <h:inputText id="password" value="#{addCustomer.password}" />
+      </div>
+      
+      <div class="inputField">
+        <h:commandButton value="Register" type="submit" action="#{addCustomer.addCustomer()}" />
       </div>
     </h:form>
   </h:body>

@@ -7,7 +7,13 @@ import java.util.ArrayList;
 public class CustomerManager {
   private CustomerGateway gateway = new CustomerGateway();
   
-  public boolean registerCustomer(CustomerDTO customer) {
+  public CustomerDTO findCustomer(String firstName, String lastName, String emailAddress) 
+  {
+    return gateway.find(firstName, lastName, emailAddress);
+  }
+  
+  public boolean registerCustomer(CustomerDTO customer) 
+  {
     return gateway.insert(customer);
-  } 
+  }
 }
