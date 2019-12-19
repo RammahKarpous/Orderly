@@ -36,7 +36,7 @@ public class CustomerGateway {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
       Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "orderlyUsername", "orderly-password");
       
-      PreparedStatement statement = conn.prepareStatement("INSET INTO customers (firstName, lastName, emailAddress, password) VALUES(?, ?, ?, ?)");
+      PreparedStatement statement = conn.prepareStatement("INSERT INTO customers (firstName, lastName, emailAddress, password) VALUES(?, ?, ?, ?)");
       statement.setString(1, customer.getFirstName());
       statement.setString(2, customer.getLastName());
       statement.setString(3, customer.getEmailAddress());

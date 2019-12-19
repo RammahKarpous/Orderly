@@ -36,14 +36,14 @@ public class AddCustomer {
         )
       )
     );
-    return "userAccount";
+    return "userAccount?faces-redirect=true";
   }
   
   public void setId(int id) {
     this.id = id;
   }
   
-  public void setFirstName(String fistName) 
+  public void setFirstName(String firstName) 
   {
     this.firstName = firstName;
   }

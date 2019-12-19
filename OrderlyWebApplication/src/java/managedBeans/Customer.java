@@ -15,6 +15,11 @@ public class Customer implements Serializable {
   private CustomerDTO customerDetails = null;
   private int totalCustomers = 0;
   
+  public CustomerDTO getCustomerDetails() 
+  {
+    return customerDetails;
+  }
+  
   public void setCustomerDetails(CustomerDTO customerDetails)
   {
     this.customerDetails = customerDetails;

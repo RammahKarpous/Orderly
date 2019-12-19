@@ -11,7 +11,8 @@ public class CustomerDTO implements Serializable {
   private final String password;
   
   
-  public CustomerDTO( int id, String firstName, String lastName, String emailAddress, String password ) {
+  public CustomerDTO( int id, String firstName, String lastName, String emailAddress, String password ) 
+  {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -19,23 +20,28 @@ public class CustomerDTO implements Serializable {
     this.password = password;
   }
   
-  public int getId() {
+  public int getId()
+  {
     return id;
   }
   
-  public String getFirstName() {
+  public String getFirstName() 
+  {
     return firstName;
   }
   
-  public String getLastName() {
+  public String getLastName() 
+  {
     return lastName;
   }
   
-  public String getEmailAddress() {
+  public String getEmailAddress() 
+  {
     return emailAddress;
   }
   
-  public String getPassword() {
+  public String getPassword() 
+  {
     return password;
   }
 }
