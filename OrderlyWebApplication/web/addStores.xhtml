@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+  <head>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <h:body>
+    <h:link value="Home" outcome="index"/>
+    
+    <h:form id="registerStore" enctype="multipart/form-data">
+      <div class="inputField">
+        <label for="storeName"><h:outputText value="Store name" /></label>
+        <h:inputText id="storeName" value="#{addStore.storeName}" />
+      </div>
+      
+      <div class="inputField">
+        <label for="logoImage"><h:outputText value="Logo" /></label>
+        <h:inputFile id="logoImage" value="#{addStore.logoImage}"></h:inputFile>
+      </div>
+      
+      <div class="inputField">
+        <label for="address"><h:outputText value="Address" /></label>
+        <h:inputText id="address" value="#{addStore.address}" a:placeholder="e.g. 47 Billy Road" />
+      </div>
+      
+      <div class="inputField">
+        <label for="city"><h:outputText value="city" /></label>
+        <h:inputText id="city" value="#{addStore.city}" />
+      </div>
+
+      <div class="inputField">
+        <label for="postcode"><h:outputText value="postcode" /></label>
+        <h:inputText id="postcode" value="#{addStore.postcode}" />
+      </div>
+      
+      <div class="inputField">
+        <h:commandButton value="Register" type="submit" action="#{addStore.addStore()}" />
+      </div>
+    </h:form>
+  </h:body>
+</html>

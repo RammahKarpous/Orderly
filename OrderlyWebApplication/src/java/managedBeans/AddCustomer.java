@@ -24,10 +24,14 @@ public class AddCustomer {
   
   public AddCustomer() { }
   
-  public String addCustomer() {
-    customer.setCustomerDetails(
-      customerUI.addCustomer(
-        new CustomerDTO(
+  public String addCustomer() 
+  {
+    customer.setCustomerDetails
+    (
+      customerUI.addCustomer
+      (
+        new CustomerDTO
+        (
           id,
           firstName,
           lastName,

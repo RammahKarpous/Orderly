@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <h:body>
-    <h:form>
+    <h:link value="Home" outcome="index"/>
+    
+    <h:form id="registerUser">
       <div class="inputField">
         <label for="firstName"><h:outputText value="First name" /></label>
         <h:inputText id="firstName" value="#{addCustomer.firstName}" />
