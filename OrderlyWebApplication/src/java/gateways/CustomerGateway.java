@@ -15,9 +15,33 @@ public class CustomerGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "orderlyUsername", "orderly-password");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
 
       String getDetails = "SELECT * FROM customers";
+      
+      PreparedStatement statement = conn.prepareStatement(getDetails);
+      
+      statement.setString(1, firstName);
+      statement.setString(2, lastName);
+      statement.setString(3, emailAddress);
+      
+      ResultSet result = statement.executeQuery();
+      
+      if (result.next()) 
+      {
+        cusDetails = new CustomerDTO
+        (
+          result.getInt("id"),
+          result.getString("firstName"),
+          result.getString("lastName"),
+          result.getString("emailAddress"),
+          result.getString("password")
+        );
+      }
+      
+      result.close();
+      statement.close();
+      conn.close();
     } 
     catch(SQLException sqle) 
     {
@@ -34,7 +58,7 @@ public class CustomerGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "orderlyUsername", "orderly-password");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
       
       PreparedStatement statement = conn.prepareStatement("INSERT INTO customers (firstName, lastName, emailAddress, password) VALUES(?, ?, ?, ?)");
       statement.setString(1, customer.getFirstName());
