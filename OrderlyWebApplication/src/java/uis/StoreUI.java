@@ -16,4 +16,14 @@ public class StoreUI {
     
     return null;
   }
+  
+//  public StoreDTO findStoreById(int id) 
+//  {
+//    return storeMngr.findStore(id);
+//  }
+  
+  public ArrayList<StoreDTO> getStoreDetails()
+  {
+    return storeMngr.getStoreDetails();
+  }
 }

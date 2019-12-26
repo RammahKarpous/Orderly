@@ -50,6 +50,48 @@ public class StoreGateway {
     
   }
   
+  public ArrayList<StoreDTO> findAllStores()
+  {
+    ArrayList<StoreDTO> allStores = new ArrayList<>();
+    
+    try
+    {
+      DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      
+      String getStoreDetails = "SELECT * FROM stores";
+      PreparedStatement statement = conn.prepareStatement(getStoreDetails);
+      
+      ResultSet result = statement.executeQuery();
+      
+      while (result.next()) 
+      {
+        StoreDTO storeDetails = new StoreDTO
+        (
+          result.getInt("id"),
+          result.getString("storeName"),
+          result.getString("logoImage"),
+          result.getString("address"),
+          result.getString("city"),
+          result.getString("postcode")
+        );
+        allStores.add(storeDetails);
+      }
+      
+      result.close();
+      statement.close();
+      conn.close();
+    }
+    
+    catch (SQLException sqle)
+    {
+      
+    }
+    
+    return allStores;
+    
+  }
+  
   public boolean insert(StoreDTO store)
   {
     boolean storeDetailsInserted = false;
