@@ -31,7 +31,10 @@ public class CustomerGateway {
           result.getString("firstName"),
           result.getString("lastName"),
           result.getString("emailAddress"),
-          result.getString("password")
+          result.getString("password"),
+          result.getString("address"),
+          result.getString("city"),
+          result.getString("postcode")
         );
       }
       

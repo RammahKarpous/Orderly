@@ -21,6 +21,9 @@ public class AddCustomer {
   private String lastName;
   private String emailAddress;
   private String password;
+  private String address;
+  private String city;
+  private String postcode;
   
   public AddCustomer() { }
   
@@ -32,11 +35,14 @@ public class AddCustomer {
       (
         new CustomerDTO
         (
-          id,
-          firstName,
-          lastName,
-          emailAddress,
-          password
+                id,
+                firstName,
+                lastName,
+                emailAddress,
+                password,
+                address,
+                city,
+                postcode
         )
       )
     );
@@ -67,6 +73,21 @@ public class AddCustomer {
     this.password = password;
   }
   
+  public void setAddress(String address) 
+  {
+    this.address = address;
+  }
+  
+  public void setCity(String city) 
+  {
+    this.city = city;
+  }
+  
+  public void setPostcode(String postcode) 
+  {
+    this.postcode = postcode;
+  }
+  
   public int getId() {
     return id;
   }
@@ -89,5 +110,17 @@ public class AddCustomer {
   public String getPassword() 
   {
     return password;
+  }
+  
+  public String getAddress() {
+    return address;
+  }
+  
+  public String getCity() {
+    return city;
+  }
+  
+  public String getPostcode() {
+    return postcode;
   }
 }
