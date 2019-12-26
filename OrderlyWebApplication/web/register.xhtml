@@ -31,6 +31,21 @@
       </div>
       
       <div class="inputField">
+        <label for="address"><h:outputText value="Address line" /></label>
+        <h:inputSecret id="address" value="#{addCustomer.address}"  />
+      </div>
+      
+      <div class="inputField">
+        <label for="password"><h:outputText value="Password" /></label>
+        <h:inputSecret id="password" value="#{addCustomer.password}" />
+      </div>
+      
+      <div class="inputField">
+        <label for="password"><h:outputText value="Password" /></label>
+        <h:inputSecret id="password" value="#{addCustomer.password}" />
+      </div>
+      
+      <div class="inputField">
         <h:commandButton value="Register" type="submit" action="#{addCustomer.addCustomer()}" />
       </div>
     </h:form>
