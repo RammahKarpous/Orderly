@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
   <h:head>
-    <title>Facelet Title</title>
+    <title>Orderly | Order groceries online from the best handpicked shops!</title>
   </h:head>
   <h:body>
     
@@ -21,18 +21,17 @@
       <h:link value="Register" outcome="register" />
     </nav>
     
-    
+    <div class="wrapper">
       <ui:repeat value="#{store.allStores}" var="str">
         <div class="store">
-          <h1><h:outputText value="#{str.id}"/></h1>
           <h2><h:outputText value="#{str.storeName}"/></h2>
-          <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="500"/>
+          <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
           <h2><h:outputText value="#{str.address}"/></h2>
           <h2><h:outputText value="#{str.city}"/></h2>
           <h2><h:outputText value="#{str.postcode}"/></h2>
         </div>
       </ui:repeat>
-    
+    </div>
   </h:body>
 </html>
 
