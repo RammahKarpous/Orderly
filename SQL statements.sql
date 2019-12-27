@@ -21,3 +21,15 @@ CREATE TABLE stores (
 	city VARCHAR(150) NOT NULL,
 	postcode VARCHAR(150) NOT NULL	
 )
+
+// ============== ADD PRODUCTS with foreign key
+CREATE TABLE products (
+  id INTEGER NOT NULL PRIMARY KEY
+      GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+  storeId INTEGER NOT NULL,
+  productName VARCHAR(100) NOT NULL,
+  productImage VARCHAR(50) NOT NULL,
+  quantity INTEGER NOT NULL,
+  price DOUBLE NOT NULL,
+  FOREIGN KEY(storeId) REFERENCES stores(id)
+)

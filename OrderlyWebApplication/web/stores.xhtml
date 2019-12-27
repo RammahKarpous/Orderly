@@ -18,23 +18,20 @@
             <h:commandLink value="#{storeLink.storeName}" action="#{storeLink.id}"/>
           </h:form>
         </ui:repeat>
-      <h:link value="View all stores" outcome="stores" />
       <h:link value="Register" outcome="register" />
     </nav>
     
     <div class="wrapper">
-      <h:outputText value="#{product.allProducts.size()}" />
-      <ui:repeat value="#{product.allProducts}" var="prod">
-        <div class="product">
-          <h:graphicImage value="resources/images/storeLogos/#{prod.productImage}" alt="image alt text" width="300"/>
-          <h2><h:outputText value="#{prod.productName}"/></h2>
-          <h5><h:outputText value="#{prod.price}"/></h5>
-          <h:form>
-            <h:commandButton value="Add to cart"/>
-          </h:form>
+      <h:outputText value="#{store.allStores.size()}" />
+      <ui:repeat value="#{store.allStores}" var="str">
+        <div class="store">
+          <h2><h:outputText value="#{str.storeName}"/></h2>
+          <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
+          <h2><h:outputText value="#{str.address}"/></h2>
+          <h2><h:outputText value="#{str.city}"/></h2>
+          <h2><h:outputText value="#{str.postcode}"/></h2>
         </div>
       </ui:repeat>
     </div>
   </h:body>
 </html>
-
