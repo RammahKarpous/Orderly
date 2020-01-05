@@ -1,22 +1,23 @@
 package dtos;
 
 import java.io.Serializable;
+import javax.servlet.http.Part;
 
 public class ProductDTO implements Serializable {
   
   private final int id;
   private final int storeId;
   private final String productName;
-  private final String productImage;
-  private final int price;
+  private final String imageName;
   private final int quantity;
+  private final double price;
   
-  public ProductDTO(int id, int storeId, String productName, String productImage, int price, int quantity) 
+  public ProductDTO(int id, int storeId, String productName, String imageName, int quantity, double price) 
   {
     this.id = id;
     this.storeId = storeId;
     this.productName = productName;
-    this.productImage = productImage;
+    this.imageName = imageName;
     this.price = price;
     this.quantity = quantity;
   }
@@ -33,16 +34,15 @@ public class ProductDTO implements Serializable {
     return productName;
   }
   
-  public String getProductImage() {
-    return productImage;
-  }
-  
-  public int getPrice() {
-    return price;
+  public String getImageName() {
+    return imageName;
   }
   
   public int getQuantity() {
     return quantity;
   }
   
+  public double getPrice() {
+    return price;
+  }
 }

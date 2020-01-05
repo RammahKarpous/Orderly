@@ -11,7 +11,7 @@ public class CustomerUI {
   {
     if (cusMngr.registerCustomer(cus)) 
     {
-      return cusMngr.findCustomer(cus.getFirstName(), cus.getLastName(), cus.getEmailAddress());
+      return cusMngr.findCustomer(cus.getId(), cus.getFirstName(), cus.getLastName(), cus.getEmailAddress(), cus.getPassword(), cus.getAddress(), cus.getCity(), cus.getPostcode());
     }
     
     return null;

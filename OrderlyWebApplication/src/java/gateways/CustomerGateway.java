@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CustomerGateway {
-  public CustomerDTO find(String firstName, String lastName, String emailAddress) 
+  public CustomerDTO find(int id, String firstName, String lastName, String emailAddress, String password, String address, String city, String postcode) 
   {
     CustomerDTO cusDetails = null;
     
@@ -42,10 +42,7 @@ public class CustomerGateway {
       statement.close();
       conn.close();
     } 
-    catch(SQLException sqle) 
-    {
-
-    }
+    catch(SQLException sqle) {  }
     
     return cusDetails;
   }
@@ -59,12 +56,15 @@ public class CustomerGateway {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
       Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
       
-      PreparedStatement statement = conn.prepareStatement("INSERT INTO customers (firstName, lastName, emailAddress, password) VALUES(?, ?, ?, ?)");
+      PreparedStatement statement = conn.prepareStatement("INSERT INTO customers (firstName, lastName, emailAddress, password, address, city, postcode) VALUES(?, ?, ?, ?, ?, ?, ?)");
       
       statement.setString(1, customer.getFirstName());
       statement.setString(2, customer.getLastName());
       statement.setString(3, customer.getEmailAddress());
       statement.setString(4, customer.getPassword());
+      statement.setString(5, customer.getAddress());
+      statement.setString(6, customer.getCity());
+      statement.setString(7, customer.getPostcode());
       
       int rows = statement.executeUpdate();
       
@@ -73,11 +73,50 @@ public class CustomerGateway {
       statement.close();
       conn.close();
     }
-    catch (SQLException sqle) 
+    catch (SQLException sqle) {  }
+    
+    return customerInserted;
+  }
+  
+  public ArrayList<CustomerDTO> getAllCustomers()
+  {
+    ArrayList<CustomerDTO> allCustomers = new ArrayList<>();
+    
+    try 
     {
+      DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      
+      String selectAll = "SELECT * FROM customers";
+      PreparedStatement statement = conn.prepareStatement(selectAll);
+      
+      ResultSet res = statement.executeQuery();
+      
+      if (res.next())
+      {
+        CustomerDTO customerDetails = new CustomerDTO
+        (
+          res.getInt("id"),
+          res.getString("firstName"),
+          res.getString("lastName"),
+          res.getString("emailAddress"),
+          res.getString("password"),
+          res.getString("address"),
+          res.getString("city"),
+          res.getString("postcode")
+        );
+        
+        allCustomers.add(customerDetails);
+      }
+      
+      res.close();
+      statement.close();
+      conn.close();
       
     }
     
-    return customerInserted;
+    catch(SQLException sqle) {  }
+    
+    return allCustomers;
   }
 }

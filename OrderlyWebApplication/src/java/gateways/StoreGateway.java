@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StoreGateway {
-  public StoreDTO find(int id, String name, String logoImage, String address, String city, String postcode)
+  public StoreDTO find(int id, String name, String address, String city, String postcode)
   {
     StoreDTO storeDetails = null;
     
@@ -29,7 +29,6 @@ public class StoreGateway {
         (
           result.getInt("id"),
           result.getString("storeName"),
-          result.getString("logoImage"),
           result.getString("address"),
           result.getString("city"),
           result.getString("postcode")
@@ -70,7 +69,6 @@ public class StoreGateway {
         (
           result.getInt("id"),
           result.getString("storeName"),
-          result.getString("logoImage"),
           result.getString("address"),
           result.getString("city"),
           result.getString("postcode")
@@ -101,13 +99,12 @@ public class StoreGateway {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
       Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
       
-      PreparedStatement statement = conn.prepareCall("INSERT INTO stores (storeName, logoImage, address, city, postcode) VALUES(?, ?, ?, ?, ?)");
+      PreparedStatement statement = conn.prepareCall("INSERT INTO stores (storeName, address, city, postcode) VALUES(?, ?, ?, ?)");
       
       statement.setString(1, store.getStoreName());
-      statement.setString(2, store.getLogoImage());
-      statement.setString(3, store.getAddress());
-      statement.setString(4, store.getCity());
-      statement.setString(5, store.getPostcode());
+      statement.setString(2, store.getAddress());
+      statement.setString(3, store.getCity());
+      statement.setString(4, store.getPostcode());
       
       int rows = statement.executeUpdate();
       

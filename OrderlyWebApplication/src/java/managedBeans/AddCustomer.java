@@ -2,10 +2,15 @@ package managedBeans;
 
 import uis.CustomerUI;
 import dtos.CustomerDTO;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-
 
 @Named(value = "addCustomer")
 @RequestScoped
@@ -70,7 +75,17 @@ public class AddCustomer {
   
   public void setPassword(String password) 
   {
-    this.password = password;
+    try {
+      byte[] hash
+              = MessageDigest.getInstance("SHA-256")
+                      .digest(password.getBytes(StandardCharsets.UTF_8));
+
+      this.password
+              = Base64.getEncoder().encodeToString(hash);
+    } catch (NoSuchAlgorithmException ex) {
+        this.password = "";
+        Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }
   
   public void setAddress(String address) 
@@ -108,7 +123,7 @@ public class AddCustomer {
   }
   
   public String getPassword() 
-  {
+  {    
     return password;
   }
   

@@ -14,12 +14,6 @@ public class Store implements Serializable {
   private final StoreUI storeUI = new StoreUI();
   private StoreDTO storeDetails = null;
   private int totalStores = 0;
-
-//  public String fetchAllStoreDetails(int id)
-//  {
-//    storeDetails = storeUI.findStoreById(id);
-//    return "index";
-//  }
   
   public StoreDTO getStoreDetails()
   {

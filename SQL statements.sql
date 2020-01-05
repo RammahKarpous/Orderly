@@ -1,4 +1,4 @@
-// ============== ADD USERS
+/* ========================== ADD USERS*/
 CREATE TABLE customers (
 	id INTEGER NOT NULL PRIMARY KEY
 		GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
@@ -11,7 +11,7 @@ CREATE TABLE customers (
 	postcode VARCHAR(9) NOT NULL
 )
 
-// ============== ADD SHOPS
+/* ========================== ADD SHOPS*/
 CREATE TABLE stores (
 	id INTEGER NOT NULL PRIMARY KEY
 		GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
@@ -22,14 +22,42 @@ CREATE TABLE stores (
 	postcode VARCHAR(150) NOT NULL	
 )
 
-// ============== ADD PRODUCTS with foreign key
+/* ========================== ADD PRODUCTS -- WITH FOREIGN KEY*/
 CREATE TABLE products (
   id INTEGER NOT NULL PRIMARY KEY
       GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
   storeId INTEGER NOT NULL,
   productName VARCHAR(100) NOT NULL,
-  productImage VARCHAR(50) NOT NULL,
+  imageName VARCHAR(200) NOT NULL,
   quantity INTEGER NOT NULL,
   price DOUBLE NOT NULL,
   FOREIGN KEY(storeId) REFERENCES stores(id)
+)
+
+/* ========================== ADD CART TABLE -- WITH FOREIGN KEYS */
+CREATE TABLE cart (
+  id INTEGER NOT NULL PRIMARY KEY
+      GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+  customerId INTEGER NOT NULL,
+  productId INTEGER NOT NULL,
+  quantity INTEGER NOT NULL,
+  subTotal double,
+  FOREIGN KEY(customerId) REFERENCES customers(id),
+  FOREIGN KEY(productId) REFERENCES products(id)
+)
+
+/* ========================== DEVELOPER MESSAGES TABLE */
+CREATE TABLE developerMessages (
+	id INTEGER NOT NULL PRIMARY KEY
+		GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+	adminName VARCHAR(50) NOT NULL,
+	message VARCHAR(150) NOT NULL
+)
+
+/* ========================== ADMIN MESSAGES TABLE */
+CREATE TABLE adminMessages (
+	id INTEGER NOT NULL PRIMARY KEY
+		GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+	developer VARCHAR(50) NOT NULL,
+	message VARCHAR(150) NOT NULL
 )

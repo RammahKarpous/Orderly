@@ -11,16 +11,11 @@ public class StoreUI {
   {
     if (storeMngr.registerStore(store))
     {
-      return storeMngr.findStore(store.getId(), store.getStoreName(), store.getLogoImage(), store.getAddress(), store.getCity(), store.getPostcode());
+      return storeMngr.findStore(store.getId(), store.getStoreName(), store.getAddress(), store.getCity(), store.getPostcode());
     }
     
     return null;
   }
-  
-//  public StoreDTO findStoreById(int id) 
-//  {
-//    return storeMngr.findStore(id);
-//  }
   
   public ArrayList<StoreDTO> getStoreDetails()
   {

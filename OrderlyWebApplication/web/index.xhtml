@@ -2,34 +2,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
   <h:head>
     <title>Orderly | Order groceries online from the best handpicked shops!</title>
+    <h:outputStylesheet library="css" name="styles.css" />
   </h:head>
   <h:body>
     
-    <h:link value="Your details" outcome="userAccount" /> <br />
-    <h:link value="Add store" outcome="addStores" />
-
     <nav>
-      <h:link value="Home" outcome="index" />
-        <ui:repeat value="#{store.allStores}" var="storeLink">
-          <h:form>
-            <h:commandLink value="#{storeLink.storeName}" action="#{storeLink.id}"/>
-          </h:form>
-        </ui:repeat>
-      <h:link value="View all stores" outcome="stores" />
-      <h:link value="Register" outcome="register" />
+      <ul>
+        <li><h:link value="Home" outcome="index" /></li>
+        <li><h:link value="Add product" outcome="addProducts"/></li>
+        <li><h:link value="Stores" outcome="stores" /></li>
+        <li><h:link value="View all stores" outcome="stores" /></li>
+        <li><h:link value="Register" outcome="register" /></li>
+        <li><h:link value="Your details" outcome="userAccount" /></li>
+        <li><h:link value="Add store" outcome="addStores" /></li>
+      </ul>
     </nav>
     
-    <div class="wrapper">
-      <h:outputText value="#{product.allProducts.size()}" />
+    <div class="wrapper grid grid-3">
       <ui:repeat value="#{product.allProducts}" var="prod">
         <div class="product">
-          <h:graphicImage value="resources/images/storeLogos/#{prod.productImage}" alt="image alt text" width="300"/>
-          <h2><h:outputText value="#{prod.productName}"/></h2>
-          <h5><h:outputText value="#{prod.price}"/></h5>
           <h:form>
+            <h:commandLink action="#{product.fetchProductDetails(id)}">
+              <h:graphicImage value="resources/images/productImages/#{prod.imageName}" alt="image alt text" width="300"/>
+              <h2><h:outputText value="#{prod.productName}"/></h2>
+              <h5><h:outputText value="#{prod.price}"/></h5>
+            </h:commandLink>
+          </h:form>
+          <h:form class="addToCart grid grid-2">
+            <div class="inputField">
+              <label for="quantity"><h:outputText value="Quantity"/></label>
+              <h:inputText value="#{addProduct.quantity}" id="quantity" a:type="number"/>
+            </div>
             <h:commandButton value="Add to cart"/>
           </h:form>
         </div>
@@ -37,4 +44,3 @@
     </div>
   </h:body>
 </html>
-

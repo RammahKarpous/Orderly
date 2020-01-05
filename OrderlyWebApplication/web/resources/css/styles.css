@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: montserrat;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+input {
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #ddd;
+  outline: 0;
+}
+
+input[type=submit] {
+  width: 150px;
+}
+
+input[type=number] {
+  width: 50px;
+}
+
+.wrapper {
+  width: 1500px;
+  margin: auto;
+}
+
+.inputField input {
+  display: block;
+  margin: 5px 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

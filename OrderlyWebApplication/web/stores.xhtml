@@ -5,31 +5,34 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
   <h:head>
     <title>Orderly | Order groceries online from the best handpicked shops!</title>
+    <h:outputStylesheet library="css" name="styles.css" />
   </h:head>
   <h:body>
     
-    <h:link value="Your details" outcome="userAccount" /> <br />
-    <h:link value="Add store" outcome="addStores" />
-
     <nav>
-      <h:link value="Home" outcome="index" />
-        <ui:repeat value="#{store.allStores}" var="storeLink">
-          <h:form>
-            <h:commandLink value="#{storeLink.storeName}" action="#{storeLink.id}"/>
-          </h:form>
-        </ui:repeat>
-      <h:link value="Register" outcome="register" />
+      <ul>
+        <li><h:link value="Home" outcome="index" /></li>
+        <li><h:link value="Register" outcome="register" /></li>
+        <li><h:link value="Your details" outcome="userAccount" /></li>
+        <li><h:link value="Add store" outcome="addStores" /></li>
+      </ul>
     </nav>
     
-    <div class="wrapper">
-      <h:outputText value="#{store.allStores.size()}" />
+    <div class="wrapper grid grid-3">
       <ui:repeat value="#{store.allStores}" var="str">
         <div class="store">
-          <h2><h:outputText value="#{str.storeName}"/></h2>
-          <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
-          <h2><h:outputText value="#{str.address}"/></h2>
-          <h2><h:outputText value="#{str.city}"/></h2>
-          <h2><h:outputText value="#{str.postcode}"/></h2>
+          <h:form>
+            <h:commandLink action="#{product.productsByStoreId}">
+              <div class="storeNameAndImage">
+                <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
+                <h2><h:outputText value="#{str.storeName}"/></h2>
+              </div>
+              
+              <p><h:outputText value="#{str.address}"/></p>
+              <p><h:outputText value="#{str.city}"/></p>
+              <p><h:outputText value="#{str.postcode}"/></p>
+            </h:commandLink>
+          </h:form>
         </div>
       </ui:repeat>
     </div>

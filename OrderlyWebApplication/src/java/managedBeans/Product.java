@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 @Named(value = "product")
 @SessionScoped
 public class Product implements Serializable {
@@ -25,7 +26,20 @@ public class Product implements Serializable {
     this.productDetails = productDetails;
   }
   
+  public String fetchProductDetails(int id)
+  {
+    productDetails = productUI.getProductDetailsById(id);
+    return "viewProduct?faces-redirect=true";
+  }
+  
   public ArrayList<ProductDTO> getAllProducts()
+  {
+    ArrayList<ProductDTO> productDetails = productUI.getProductDetails();
+    totalProducts = productDetails.size();
+    return productDetails;
+  }
+  
+  public ArrayList<ProductDTO> getProductsByStoreId()
   {
     ArrayList<ProductDTO> productDetails = productUI.getProductDetails();
     totalProducts = productDetails.size();

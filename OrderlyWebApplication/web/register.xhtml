@@ -10,6 +10,9 @@
     <h:link value="Home" outcome="index"/>
     
     <h:form id="registerUser">
+      
+      <h1>Register</h1>
+      
       <div class="inputField">
         <label for="firstName"><h:outputText value="First name" /></label>
         <h:inputText id="firstName" value="#{addCustomer.firstName}" />
@@ -32,17 +35,17 @@
       
       <div class="inputField">
         <label for="address"><h:outputText value="Address line" /></label>
-        <h:inputSecret id="address" value="#{addCustomer.address}"  />
+        <h:inputText id="address" value="#{addCustomer.address}"  />
       </div>
       
       <div class="inputField">
-        <label for="password"><h:outputText value="Password" /></label>
-        <h:inputSecret id="password" value="#{addCustomer.password}" />
+        <label for="city"><h:outputText value="City" /></label>
+        <h:inputText id="city" value="#{addCustomer.city}" />
       </div>
       
       <div class="inputField">
-        <label for="password"><h:outputText value="Password" /></label>
-        <h:inputSecret id="password" value="#{addCustomer.password}" />
+        <label for="postcode"><h:outputText value="Postcode" /></label>
+        <h:inputText id="postcode" value="#{addCustomer.postcode}" />
       </div>
       
       <div class="inputField">

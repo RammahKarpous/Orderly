@@ -13,7 +13,6 @@ public class CustomerDTO implements Serializable {
   private final String city;
   private final String postcode;
   
-  
   public CustomerDTO( int id, String firstName, String lastName, String emailAddress, String password, String address, String city, String postcode ) 
   {
     this.id = id;

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:head>
+    <title>Orderly | Order groceries online from the best handpicked shops!</title>
+  </h:head>
+  <h:body>
+
+    <nav>
+      <ul>
+        <li><h:link value="Home" outcome="index" /></li>
+        <li><h:link value="Add product" outcome="addProducts"/></li>
+        <li><h:link value="Stores" outcome="stores" /></li>
+        <li><h:link value="View all stores" outcome="stores" /></li>
+        <li><h:link value="Register" outcome="register" /></li>
+        <li><h:link value="Your details" outcome="userAccount" /></li>
+        <li><h:link value="Add store" outcome="addStores" /></li>
+      </ul>
+    </nav>
+    
+    <div class="wrapper">
+      <div class="single-product">
+        <h:graphicImage value="resources/images/productImages/#{product.productDetails.imageName}" alt="image alt text" width="300"/>
+        <h2><h:outputText value="#{product.productDetails.productName}"/></h2>
+        <h5><h:outputText value="#{product.productDetails.price}"/></h5>
+
+        <h:form>
+          <h:commandButton value="Add to cart" />
+        </h:form>
+      </div>
+    </div>
+  </h:body>
+</html>

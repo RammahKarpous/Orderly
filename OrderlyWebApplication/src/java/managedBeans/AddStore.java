@@ -18,7 +18,6 @@ public class AddStore
   
   private int id;
   private String storeName;
-  private String logoImage;
   private String address;
   private String city;
   private String postcode;
@@ -35,7 +34,6 @@ public class AddStore
         (
           id,
           storeName,
-          logoImage,
           address,
           city,
           postcode
@@ -43,23 +41,7 @@ public class AddStore
       )
     );
     
-    return "index?faces-redirect=true";
-  }
-
-  public StoreUI getStoreUI() {
-    return storeUI;
-  }
-
-  public void setStoreUI(StoreUI storeUI) {
-    this.storeUI = storeUI;
-  }
-
-  public Store getStore() {
-    return store;
-  }
-
-  public void setStore(Store store) {
-    this.store = store;
+    return "stores?faces-redirect=true";
   }
 
   public int getId() {
@@ -76,14 +58,6 @@ public class AddStore
 
   public void setStoreName(String storeName) {
     this.storeName = storeName;
-  }
-
-  public String getLogoImage() {
-    return logoImage;
-  }
-
-  public void setLogoImage(String logoImage) {
-    this.logoImage = logoImage;
   }
 
   public String getAddress() {

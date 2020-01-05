@@ -12,7 +12,8 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <h:link value="back" outcome="userRegister" />
+    <h:link value="back to home" outcome="index" />
+    <h:link value="back" outcome="register" />
     <p><h:outputText value="Your id is #{customer.customerDetails.id}" /></p>
     <p><h:outputText value="Hello #{customer.customerDetails.firstName}"/></p>
     <p><h:outputText value="Your email address is #{customer.customerDetails.emailAddress}"/></p>

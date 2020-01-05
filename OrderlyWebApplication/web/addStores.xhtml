@@ -16,14 +16,10 @@ and open the template in the editor.
     <h:link value="Home" outcome="index"/>
     
     <h:form id="registerStore" enctype="multipart/form-data">
+      <h1>Register store</h1>
       <div class="inputField">
         <label for="storeName"><h:outputText value="Store name" /></label>
         <h:inputText id="storeName" value="#{addStore.storeName}" />
-      </div>
-      
-      <div class="inputField">
-        <label for="logoImage"><h:outputText value="Logo" /></label>
-        <h:inputFile id="logoImage" value="#{addStore.logoImage}"></h:inputFile>
       </div>
       
       <div class="inputField">

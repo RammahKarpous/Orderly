@@ -6,7 +6,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
-
 @Named(value = "customer")
 @SessionScoped
 public class Customer implements Serializable {
@@ -24,5 +23,4 @@ public class Customer implements Serializable {
   {
     this.customerDetails = customerDetails;
   }
-  
 }
