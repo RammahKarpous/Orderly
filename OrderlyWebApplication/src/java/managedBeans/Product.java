@@ -26,10 +26,9 @@ public class Product implements Serializable {
     this.productDetails = productDetails;
   }
   
-  public String fetchProductDetails(int id)
+  public ProductDTO fetchProductDetails(int id)
   {
-    productDetails = productUI.getProductDetailsById(id);
-    return "viewProduct?faces-redirect=true";
+    return productUI.getProductDetailsById(id);
   }
   
   public ArrayList<ProductDTO> getAllProducts()
@@ -44,5 +43,11 @@ public class Product implements Serializable {
     ArrayList<ProductDTO> productDetails = productUI.getProductDetails();
     totalProducts = productDetails.size();
     return productDetails;
+  }
+  
+  public String deleteProduct(int id)
+  {
+    productUI.deleteProduct(id);
+    return "products?faces-redirect=true";
   }
 }

@@ -34,4 +34,9 @@ public class ProductManager {
     return gateway.addProduct(product);
   }
   
+  public void remove(int id)
+  {
+     gateway.delete(id);
+  }
+  
 }

@@ -34,4 +34,9 @@ public class ProductUI {
   {
     return prodMngr.getProductsByStoreId(storeId);
   }
+  
+  public void deleteProduct(int id)
+  {
+     prodMngr.remove(id);
+  }
 }

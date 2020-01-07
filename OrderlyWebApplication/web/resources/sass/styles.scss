@@ -78,7 +78,7 @@ input {
 }
 
 input[type=submit] {
-  width: 150px;
+  width: 120px;
 }
 
 input[type=number], 
@@ -116,8 +116,12 @@ input[type=password]  {
     padding-bottom: 0px !important;
   }
   
-  .addToCart, .namePrice {
-    padding: 0 20px 20px 20px;
+  .addToCart, .namePrice, .deleteUpdate {
+    padding: 0 15px 20px;
+  }
+  
+  .deleteUpdate {
+    justify-content: space-between;
   }
   
   &:hover {
