@@ -11,36 +11,49 @@
   <h:body>
     
     <nav>
-      <ul>
+      <ul class="wrapper">
         <li><h:link value="Home" outcome="index" /></li>
-        <li><h:link value="Add product" outcome="addProducts"/></li>
+        <li><h:link value="Add product" outcome="products"/></li>
         <li><h:link value="Stores" outcome="stores" /></li>
-        <li><h:link value="View all stores" outcome="stores" /></li>
         <li><h:link value="Register" outcome="register" /></li>
         <li><h:link value="Your details" outcome="userAccount" /></li>
         <li><h:link value="Add store" outcome="addStores" /></li>
       </ul>
     </nav>
+    <main class="wrapper">
+      <h1>Products</h1>
+      
+      <div class="grid grid-4">
+        <ui:repeat value="#{product.allProducts}" var="prod">
+          
+          <div class="product">
+            <h:form>
+              <h:commandLink action="#{product.fetchProductDetails(id)}">
+                <h:graphicImage value="resources/images/productImages/#{prod.imageName}" alt="image alt text" width="300"/>
+                
+                <div class="namePrice flex">
+                  <h2><h:outputText value="#{prod.productName}"/></h2>
+                  <h4><h:outputText value="£ #{prod.price}"/></h4>
+                </div>
+              </h:commandLink>
+            </h:form>
+            
+            <h:form class="addToCart flex">
+              <div class="inputField">
+                <label for="quantity"><h:outputText value="Quantity"/></label>
+                <h:inputText value="#{addProduct.quantity}" id="quantity" a:type="number"/>
+              </div>
+              
+              <h:commandButton value="Add to cart" action="#{cart.addToCart(cart)}"/>
+            </h:form>
+          </div>
+          
+        </ui:repeat>
+      </div>
+    </main>
     
-    <div class="wrapper grid grid-3">
-      <ui:repeat value="#{product.allProducts}" var="prod">
-        <div class="product">
-          <h:form>
-            <h:commandLink action="#{product.fetchProductDetails(id)}">
-              <h:graphicImage value="resources/images/productImages/#{prod.imageName}" alt="image alt text" width="300"/>
-              <h2><h:outputText value="#{prod.productName}"/></h2>
-              <h5><h:outputText value="#{prod.price}"/></h5>
-            </h:commandLink>
-          </h:form>
-          <h:form class="addToCart grid grid-2">
-            <div class="inputField">
-              <label for="quantity"><h:outputText value="Quantity"/></label>
-              <h:inputText value="#{addProduct.quantity}" id="quantity" a:type="number"/>
-            </div>
-            <h:commandButton value="Add to cart"/>
-          </h:form>
-        </div>
-      </ui:repeat>
-    </div>
+    <footer>
+      
+    </footer>
   </h:body>
 </html>
