@@ -3,18 +3,55 @@ body {
   font-family: montserrat;
 }
 
-.grid {
-  display: grid;
+a {
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #00ad7c;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 .grid-2 {
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wrapper {
+  width: 1200px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+nav ul a {
+  display: inline-block;
+  padding: 40px 20px;
 }
 
 input {
@@ -22,24 +59,54 @@ input {
   background: transparent;
   border: 1px solid #ddd;
   outline: 0;
+  transition: 0.3s;
+}
+input:hover {
+  border-color: #00ad7c;
 }
 
 input[type=submit] {
   width: 150px;
 }
 
-input[type=number] {
+input[type=number],
+input[type=text],
+input[type=email],
+input[type=password] {
   width: 50px;
 }
-
-.wrapper {
-  width: 1500px;
-  margin: auto;
+input[type=number]:focus,
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  border-color: #00ad7c;
 }
 
 .inputField input {
   display: block;
-  margin: 5px 0;
+  margin: 5px 20px 0 0;
+}
+
+.products {
+  margin-top: 50px;
+}
+
+.product {
+  border: 2px solid #eee;
+  transition: 0.3s;
+}
+.product img {
+  width: 100%;
+}
+.product .namePrice {
+  justify-content: space-between;
+  padding-bottom: 0px !important;
+}
+.product .addToCart, .product .namePrice {
+  padding: 0 20px 20px 20px;
+}
+.product:hover {
+  border-color: #b9eecc;
 }
 
 /*# sourceMappingURL=styles.css.map */

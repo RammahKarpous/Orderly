@@ -1,20 +1,68 @@
+$pure-green: #00ad7c;
+$lighter-green: #52d681;
+$lightest-green: #b5ff7d;
+
 body {
   margin: 0;
   font-family: montserrat;
 }
 
-.grid {
-  display:grid;
+a {
+  color: black;
+  text-decoration: none;
+  transition: .3s;
+  
+  &:hover {
+    color: $pure-green;
+  }
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+.grid {
+  display:grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 .grid-2 {
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wrapper {
+  width: 1200px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+// NAVIGATION
+nav {
+  
+  ul {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    
+    a {
+      display: inline-block;
+      padding: 40px 20px;
+    }
+  }
 }
 
 input {
@@ -22,24 +70,57 @@ input {
   background: transparent;
   border: 1px solid #ddd;
   outline: 0;
+  transition: .3s;
+  
+  &:hover {
+    border-color: $pure-green;
+  }
 }
 
 input[type=submit] {
   width: 150px;
 }
 
-input[type=number] {
+input[type=number], 
+input[type=text], 
+input[type=email], 
+input[type=password]  {
   width: 50px;
-}
-
-.wrapper {
-  width: 1500px;
-  margin: auto;
+  
+  &:focus {
+    border-color: $pure-green;
+  }
 }
 
 .inputField {
   input {
     display: block;
-    margin: 5px 0;
+    margin: 5px 20px 0 0  ;
+  }
+}
+
+.products {
+  margin-top: 50px;
+}
+
+.product {
+  border: 2px solid #eee;
+  transition: .3s;
+  
+  img {
+    width: 100%;
+  }
+  
+  .namePrice {
+    justify-content: space-between;
+    padding-bottom: 0px !important;
+  }
+  
+  .addToCart, .namePrice {
+    padding: 0 20px 20px 20px;
+  }
+  
+  &:hover {
+    border-color: lighten($lighter-green, 25%);
   }
 }
