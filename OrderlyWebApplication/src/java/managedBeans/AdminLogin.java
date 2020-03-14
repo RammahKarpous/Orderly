@@ -33,16 +33,16 @@ public class AdminLogin implements Serializable {
       this.password = password;
   }
 
-  public String checkCredentials() {
-
-    if (firstName.equals("ADMIN") && password.equals("ADMIN")) {
-      return "adminPanel?faces-redirect=true";
-    } else {
-      clearFields();
-      FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Your login credentials are not correct! Try again later..."));
-      return "adminLogin?faces-redirect=true";
-    }
-  }
+//  public String checkCredentials() {
+//
+//    if (firstName.equals("ADMIN") && password.equals("ADMIN")) {
+//      return "adminPanel?faces-redirect=true";
+//    } else {
+//      clearFields();
+//      FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Your login credentials are not correct! Try again later..."));
+//      return "adminLogin?faces-redirect=true";
+//    }
+//  }
 
   private void clearFields() {
     this.firstName = "";
