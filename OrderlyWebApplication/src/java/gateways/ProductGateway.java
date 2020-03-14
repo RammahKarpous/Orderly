@@ -17,7 +17,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       PreparedStatement statement = conn.prepareCall("INSERT INTO products (storeId, productName, imageName, quantity, price) VALUES(?, ?, ?, ?, ?)");
 
@@ -46,7 +46,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       String getProductDetails = "SELECT * FROM products";
       PreparedStatement statement = conn.prepareStatement(getProductDetails);
@@ -81,7 +81,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       String getProductDetails = "SELECT * FROM products JOIN storeName stores USING stpreId = ?";
       PreparedStatement statement = conn.prepareStatement(getProductDetails);
@@ -117,7 +117,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       String getProduct = "SELECT * FROM products WHERE id = ?";
 
@@ -151,7 +151,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       String getProduct = "SELECT * FROM products WHERE id = ?";
 
@@ -184,7 +184,7 @@ public class ProductGateway {
   {
     try {
         DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
         PreparedStatement statement = conn.prepareStatement("UPDATE products SET productName = ?, imageName = ?, quantity = ?, price = ? WHERE id = ?");
         
@@ -209,7 +209,7 @@ public class ProductGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
 
       String deleteProd = "DELETE FROM products WHERE id = ?";
       PreparedStatement statement = conn.prepareStatement(deleteProd);
