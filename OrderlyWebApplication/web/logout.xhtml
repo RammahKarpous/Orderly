@@ -1,0 +1,20 @@
+<ui:composition template="templates/guest-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | You have been successfully logged out.</ui:define>
+  <ui:define name="content">
+    <main class="wrapper center">
+      <h1>You have been successfully logged out</h1>
+    </main>
+    
+    <script>
+      setTimeout(function() {
+       window.location.replace("faces/index.xhtml"); 
+      }, 1000);
+    </script>
+  </ui:define>
+</ui:composition>
+

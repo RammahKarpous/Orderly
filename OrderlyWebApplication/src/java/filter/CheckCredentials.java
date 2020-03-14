@@ -14,10 +14,15 @@
 //import javax.servlet.http.HttpSession;
 //import managedBeans.login;
 //
+<<<<<<< HEAD
 //@WebFilter(filterName = "CheckCredentials", urlPatterns
 //        = {
 //          "/*"
 //        })
+=======
+//@WebFilter(filterName = "CheckCredentials", urlPatterns = { "/*.xhtml" })
+//
+>>>>>>> 071eec4bd392179f9f8c84af3329ca7b4a4fccb4
 //public class CheckCredentials implements Filter {
 //
 //  // The filter configuration object we are associated with. If

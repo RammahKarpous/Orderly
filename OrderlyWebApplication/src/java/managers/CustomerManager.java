@@ -16,4 +16,14 @@ public class CustomerManager {
   {
     return gateway.insert(customer);
   }
+  
+  public ArrayList<CustomerDTO> findAllCustomers()
+  {
+    return gateway.getAllCustomers();
+  }
+  
+  public void removeCustomer(int id)
+  {
+    gateway.delete(id);
+  }
 }

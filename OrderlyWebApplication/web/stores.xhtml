@@ -1,28 +1,16 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-  <h:head>
-    <title>Orderly | Order groceries online from the best handpicked shops!</title>
-    <h:outputStylesheet library="css" name="styles.css" />
-  </h:head>
-  <h:body>
-    
-    <nav>
-      <ul class="wrapper">
-        <li><h:link value="Home" outcome="index" /></li>
-        <li><h:link value="Register" outcome="register" /></li>
-        <li><h:link value="Your details" outcome="userAccount" /></li>
-        <li><h:link value="Add store" outcome="addStores" /></li>
-      </ul>
-    </nav>
-    
+<ui:composition template="templates/guest-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
     <div class="wrapper grid grid-3">
       <ui:repeat value="#{store.allStores}" var="str">
         <div class="store">
           <h:form>
-            <h:commandLink action="#{product.productsByStoreId}">
+            <h:link outcome="viewStoreProducts">
               <div class="storeNameAndImage">
                 <h:graphicImage value="resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
                 <h2><h:outputText value="#{str.storeName}"/></h2>
@@ -31,10 +19,10 @@
               <p><h:outputText value="#{str.address}"/></p>
               <p><h:outputText value="#{str.city}"/></p>
               <p><h:outputText value="#{str.postcode}"/></p>
-            </h:commandLink>
+            </h:link>
           </h:form>
         </div>
       </ui:repeat>
     </div>
-  </h:body>
-</html>
+  </ui:define>
+</ui:composition>

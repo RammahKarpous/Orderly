@@ -1,0 +1,28 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <h:form id="registerUser">
+      <h1>Login</h1>
+      <div class="inputField">
+        <label for="emailAddress"><h:outputText value="Username" /></label>
+        <h:inputText id="emailAddress" value="#{adminLogin.username}" />
+        <h:message for="emailAddress" />
+      </div>
+      
+      <div class="inputField">
+        <label for="password"><h:outputText value="Password" /></label>
+        <h:inputSecret id="password" value="#{adminLogin.password}" />
+        <h:message for="password" />
+      </div>
+      
+      <div class="inputField">
+        <h:commandButton value="Register" type="submit" action="#{adminLogin.checkCredentials()}" />
+      </div>
+    </h:form>
+  </ui:define>
+</ui:composition>

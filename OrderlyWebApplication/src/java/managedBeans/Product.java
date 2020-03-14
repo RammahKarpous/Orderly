@@ -2,17 +2,17 @@ package managedBeans;
 
 import uis.ProductUI;
 import dtos.ProductDTO;
+import dtos.StoreDTO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
 @Named(value = "product")
 @SessionScoped
 public class Product implements Serializable {
 
-  private ProductUI productUI = new ProductUI();
+  private final ProductUI productUI = new ProductUI();
   private ProductDTO productDetails = null;
   private int totalProducts = 0;
   
@@ -26,9 +26,10 @@ public class Product implements Serializable {
     this.productDetails = productDetails;
   }
   
-  public ProductDTO fetchProductDetails(int id)
+  public String fetchProductDetails(int id)
   {
-    return productUI.getProductDetailsById(id);
+    productDetails = productUI.getProductDetailsById(id);
+    return "viewProduct?faces-redirect=true";
   }
   
   public ArrayList<ProductDTO> getAllProducts()
@@ -38,9 +39,9 @@ public class Product implements Serializable {
     return productDetails;
   }
   
-  public ArrayList<ProductDTO> getProductsByStoreId()
+  public ArrayList<ProductDTO> getProductsByStoreId(int id)
   {
-    ArrayList<ProductDTO> productDetails = productUI.getProductDetails();
+    ArrayList<ProductDTO> productDetails = productUI.getProductsByStoreId(id);
     totalProducts = productDetails.size();
     return productDetails;
   }

@@ -16,4 +16,14 @@ public class CustomerUI {
     
     return null;
   }
+  
+  public ArrayList<CustomerDTO> findAllCustomers()
+  {
+    return cusMngr.findAllCustomers();
+  }
+  
+  public void deleteCustomer(int id)
+  {
+    cusMngr.removeCustomer(id);
+  }
 }

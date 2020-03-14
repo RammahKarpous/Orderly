@@ -1,0 +1,29 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <div class="wrapper">
+      <h:link outcome="/admin/products" value="Back" class="button" style="margin-bottom: 20px;" />
+      <div class="admin-single-product">
+        <h:graphicImage value="../resources/images/productImages/#{product.productDetails.imageName}" alt="image alt text" width="300"/>
+        <h4>Product name</h4>
+        <h:outputText value="#{product.productDetails.productName}"/>
+        
+        <h4>Price</h4>
+        <h:outputText value="£ #{product.productDetails.price}"/>
+        
+        <h4>Quantity</h4>
+        <h:outputText value="#{product.productDetails.quantity}"/>
+        
+        <h:form class="deleteUpdate flex">
+          <h:commandButton value="Delete product" action="#{product.deleteProduct(prod.id)}"/>
+          <h:commandLink value="Update product" action="#{updateProducts.updateProduct}"/>
+        </h:form>
+      </div>
+    </div>
+  </ui:define>
+</ui:composition>

@@ -21,4 +21,19 @@ public class StoreUI {
   {
     return storeMngr.getStoreDetails();
   }
+  
+  public StoreDTO getStoreDetailsById(int id)
+  {
+    return storeMngr.getStoreDetailsById(id);
+  }
+  
+  public void deleteStore(int id)
+  {
+    storeMngr.remove(id);
+  }
+  
+  public StoreDTO updateStoreDetails(StoreDTO store)
+  {
+    return storeMngr.updateStore(store);
+  }
 }

@@ -24,9 +24,9 @@ public class ProductManager {
     return gateway.findProduct(id, storeId, productName, imageName, quantity, price);
   }
   
-  public ArrayList<ProductDTO> getProductsByStoreId(StoreDTO storeId)
+  public ArrayList<ProductDTO> getProductsByStoreId(int id)
   {
-    return gateway.findProductsByStoreId(storeId);
+    return gateway.findProductsByStoreId(id);
   }
   
   public boolean addProduct(ProductDTO product)
@@ -37,6 +37,11 @@ public class ProductManager {
   public void remove(int id)
   {
      gateway.delete(id);
+  }
+  
+  public void update(ProductDTO product, int id)
+  {
+    gateway.update(product, id);
   }
   
 }

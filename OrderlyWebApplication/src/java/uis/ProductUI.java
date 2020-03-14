@@ -30,13 +30,18 @@ public class ProductUI {
     return prodMngr.getProductDetailsById(id);
   }
   
-  public ArrayList<ProductDTO> getProductsByStoreId( StoreDTO storeId)
+  public ArrayList<ProductDTO> getProductsByStoreId(int id)
   {
-    return prodMngr.getProductsByStoreId(storeId);
+    return prodMngr.getProductsByStoreId(id);
   }
   
   public void deleteProduct(int id)
   {
      prodMngr.remove(id);
+  }
+  
+  public void updateProduct(ProductDTO product, int id)
+  {
+    prodMngr.update(product, id);
   }
 }

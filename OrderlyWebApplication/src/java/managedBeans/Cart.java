@@ -26,9 +26,9 @@ public class Cart implements Serializable {
     this.cartContents = cartContents;
   }
   
-  public ArrayList<CartDTO> addToCart(CartDTO cart)
+  public ArrayList<CartDTO> addToCart(CartDTO crt)
   {
-    ArrayList<CartDTO> cartContents = cartUI.addContentsToCart(cart);
+    ArrayList<CartDTO> cartContents = cartUI.addContentsToCart(crt);
     totalContents = cartContents.size();
     return cartContents;
   }

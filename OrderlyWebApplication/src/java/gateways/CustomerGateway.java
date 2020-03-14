@@ -92,7 +92,7 @@ public class CustomerGateway {
       
       ResultSet res = statement.executeQuery();
       
-      if (res.next())
+      while (res.next())
       {
         CustomerDTO customerDetails = new CustomerDTO
         (
@@ -118,5 +118,25 @@ public class CustomerGateway {
     catch(SQLException sqle) {  }
     
     return allCustomers;
+  }
+  
+  public void delete(int id) 
+  {
+
+    try {
+      DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
+
+      String deleteProd = "DELETE FROM customers WHERE id = ?";
+      PreparedStatement statement = conn.prepareStatement(deleteProd);
+      statement.setInt(1, id);
+
+      statement.execute();
+
+      statement.close();
+      conn.close();
+    } catch (SQLException sqle) {
+      sqle.printStackTrace();
+    }
   }
 }

@@ -5,6 +5,7 @@ import dtos.CustomerDTO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Named(value = "customer")
 @SessionScoped
@@ -22,5 +23,18 @@ public class Customer implements Serializable {
   public void setCustomerDetails(CustomerDTO customerDetails)
   {
     this.customerDetails = customerDetails;
+  }
+  
+  public ArrayList<CustomerDTO> getAllCustomers()
+  {
+    ArrayList<CustomerDTO> customerDetails = customerUI.findAllCustomers();
+    totalCustomers = customerDetails.size();
+    return customerDetails;
+  }
+  
+  public String deleteCustomer(int id)
+  {
+    customerUI.deleteCustomer(id);
+    return "/admin/customers";
   }
 }

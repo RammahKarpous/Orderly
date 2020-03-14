@@ -1,26 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-  <head>
-    <title>Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-  <h:body>
-    <h:link value="Home" outcome="index"/>
-    
-    <h:form id="registerUser">
+<ui:composition template="templates/guest-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | Register</ui:define>
+  <ui:define name="content">
+    <h:form id="registerUser" class="narrow-wrapper">
       
       <h1>Register</h1>
-      
-      <div class="inputField">
-        <label for="firstName"><h:outputText value="First name" /></label>
-        <h:inputText id="firstName" value="#{addCustomer.firstName}" />
-      </div>
-      
-      <div class="inputField">
-        <label for="lastName"><h:outputText value="Last name" /></label>
-        <h:inputText id="lastName" value="#{addCustomer.lastName}" />
+      <div class="grid grid-2">
+        <div class="inputField">
+          <label for="firstName"><h:outputText value="First name" /></label>
+          <h:inputText id="firstName" value="#{addCustomer.firstName}" />
+        </div>
+
+        <div class="inputField">
+          <label for="lastName"><h:outputText value="Last name" /></label>
+          <h:inputText id="lastName" value="#{addCustomer.lastName}" />
+        </div>  
       </div>
       
       <div class="inputField">
@@ -33,24 +31,26 @@
         <h:inputSecret id="password" value="#{addCustomer.password}" />
       </div>
       
-      <div class="inputField">
-        <label for="address"><h:outputText value="Address line" /></label>
-        <h:inputText id="address" value="#{addCustomer.address}"  />
-      </div>
-      
-      <div class="inputField">
-        <label for="city"><h:outputText value="City" /></label>
-        <h:inputText id="city" value="#{addCustomer.city}" />
-      </div>
-      
-      <div class="inputField">
-        <label for="postcode"><h:outputText value="Postcode" /></label>
-        <h:inputText id="postcode" value="#{addCustomer.postcode}" />
+      <div class="grid grid-3">
+        <div class="inputField">
+          <label for="address"><h:outputText value="Address line" /></label>
+          <h:inputText id="address" value="#{addCustomer.address}"  />
+        </div>
+
+        <div class="inputField">
+          <label for="city"><h:outputText value="City" /></label>
+          <h:inputText id="city" value="#{addCustomer.city}" />
+        </div>
+
+        <div class="inputField">
+          <label for="postcode"><h:outputText value="Postcode" /></label>
+          <h:inputText id="postcode" value="#{addCustomer.postcode}" />
+        </div>
       </div>
       
       <div class="inputField">
         <h:commandButton value="Register" type="submit" action="#{addCustomer.addCustomer()}" />
       </div>
     </h:form>
-  </h:body>
-</html>
+  </ui:define>
+</ui:composition>

@@ -1,6 +1,13 @@
+// VARIABLES
 $pure-green: #00ad7c;
 $lighter-green: #52d681;
 $lightest-green: #b5ff7d;
+$red: #f20;
+
+// MIXINGS
+@mixin border($size,) {
+  border: $size solid #ddd;
+}
 
 body {
   margin: 0;
@@ -15,6 +22,36 @@ a {
   &:hover {
     color: $pure-green;
   }
+}
+
+.error {
+  color: $red;
+}
+
+input, .button, input[type=submit] {
+  padding: 12px 20px;
+  background: transparent;
+  @include border(1px);
+  outline: 0;
+  transition: .3s;
+  display: inline-block;
+  
+  &:hover {
+    border-color: $pure-green;
+    color: black;
+  }
+  &:focus {
+    border-color: $pure-green;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.card {
+  @include border(2px);
+  padding: 10px 10px 30px 10px;
 }
 
 .grid {
@@ -41,6 +78,26 @@ a {
   margin: auto;
 }
 
+.narrow-wrapper {
+  width: 900px;
+  margin: 30px auto;
+}
+
+.inputField {
+  margin: 10px 0;
+}
+  
+input[type=text], 
+input[type=email], 
+input[type=password],
+select{
+  width: calc(100% - 40px);
+}
+
+select option {
+  padding: 10px;
+}
+
 .flex {
   display: flex;
   flex-flow: row;
@@ -65,27 +122,8 @@ nav {
   }
 }
 
-input {
-  padding: 12px;
-  background: transparent;
-  border: 1px solid #ddd;
-  outline: 0;
-  transition: .3s;
-  
-  &:hover {
-    border-color: $pure-green;
-  }
-}
-
-input[type=submit] {
-  width: 120px;
-}
-
-input[type=number], 
-input[type=text], 
-input[type=email], 
-input[type=password]  {
-  width: 50px;
+input[type=number] {
+  width: 50px !important;
   
   &:focus {
     border-color: $pure-green;
@@ -95,16 +133,21 @@ input[type=password]  {
 .inputField {
   input {
     display: block;
-    margin: 5px 20px 0 0  ;
+    margin: 5px 20px 0 0;
   }
 }
 
+// ===== PROFUCTS STYLING
 .products {
   margin-top: 50px;
 }
 
+.productImages {
+  height: 200px;
+}
+
 .product {
-  border: 2px solid #eee;
+  @include border(2px);
   transition: .3s;
   
   img {
@@ -122,9 +165,75 @@ input[type=password]  {
   
   .deleteUpdate {
     justify-content: space-between;
+    align-items: center;
+    
+    a {
+      font-size: 14px;
+    }
   }
   
   &:hover {
     border-color: lighten($lighter-green, 25%);
   }
+}
+
+.admin-single-product {
+  h4 {
+    margin-bottom: 0;
+  }
+  
+  .deleteUpdate {
+    margin-top: 20px;
+    align-items: center;
+    
+    a {
+      margin-left: 20px;
+    }
+  }
+}
+
+.a-quantity {
+  width: 100%;
+}
+
+// STORE STYLING ==== ADMIN PAGE
+.store {
+  padding: 12px;
+  
+  option {
+    padding: 12px;
+  }
+}
+
+#registerStore {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+  
+  h1 {
+    grid-colums: 1 / 5;
+  }
+}
+
+.storeNameAndImage {
+  img {
+    width: 100%;
+  }
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  margin-top: 150px;
+  padding: 30px 0;
+}
+
+// CUSTOMER VIEW == ADMIN PANEL
+.row {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.rows .row {
+  border-bottom: 1px solid #ddd;
 }

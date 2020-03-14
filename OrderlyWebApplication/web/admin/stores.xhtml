@@ -1,0 +1,64 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <div class="wrapper">
+      <h1>Register store</h1>
+      <h:form id="registerStore">
+
+        <div class="inputField">
+          <label for="storeName"><h:outputText value="Store name" /></label>
+          <h:inputText id="storeName" value="#{addStore.storeName}" />
+        </div>
+
+        <div class="inputField">
+          <label for="address"><h:outputText value="Address" /></label>
+          <h:inputText id="address" value="#{addStore.address}" a:placeholder="e.g. 47 Billy Road" />
+        </div>
+
+        <div class="inputField">
+          <label for="city"><h:outputText value="city" /></label>
+          <h:inputText id="city" value="#{addStore.city}" />
+        </div>
+
+        <div class="inputField">
+          <label for="postcode"><h:outputText value="postcode" /></label>
+          <h:inputText id="postcode" value="#{addStore.postcode}" />
+        </div>
+
+        <div class="inputField">
+          <h:commandButton value="Add store" type="submit" action="#{addStore.addStore()}" />
+        </div>
+      </h:form>
+
+      <h1>Registered stores</h1>
+      <div class="grid grid-3">
+        <ui:repeat value="#{store.allStores}" var="str">
+          <div class="store">
+            <h:form>
+              <h:link outcome="viewStoreProducts">
+                <div class="storeNameAndImage">
+                  <h:graphicImage value="../resources/images/storeLogos/default-store-logo.jpg" alt="image alt text" width="300"/>
+                  <h2><h:outputText value="#{str.storeName}"/></h2>
+                </div>
+
+                <p><h:outputText value="#{str.address},"/></p>
+                <p><h:outputText value="#{str.city},"/></p>
+                <p><h:outputText value="#{str.postcode}"/></p>
+              </h:link>
+
+              <div class="buttons">
+                <h:commandButton value="Delete store" action="#{store.removeStore(str.id)}" />
+                <h:commandLink action="#{store.fetchStoreDetails(str.id)}" value="Update store" />
+              </div>
+            </h:form>
+          </div>
+        </ui:repeat>
+      </div>
+    </div>
+  </ui:define>
+</ui:composition>
