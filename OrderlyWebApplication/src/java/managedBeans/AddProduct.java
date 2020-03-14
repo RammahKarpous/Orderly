@@ -2,6 +2,7 @@ package managedBeans;
 
 import uis.ProductUI;
 import dtos.ProductDTO;
+import dtos.StoreDTO;
 import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -41,7 +42,7 @@ public class AddProduct {
       )
     );
     
-    return "addProducts";
+    return "addProducts?faces-redirect=true";
   }
 
   public int getId() {

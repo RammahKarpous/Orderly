@@ -1,36 +1,26 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-  <h:head>
-    <title>Orderly | Order [Product name]</title>
-    <h:outputStylesheet library="css" name="styles.css" />
-  </h:head>
-  <h:body>
+<ui:composition template="templates/guest-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <nav>
-      <ul class="wrapper">
-        <li><h:link value="Home" outcome="index" /></li>
-        <li><h:link value="Add product" outcome="products"/></li>
-        <li><h:link value="Stores" outcome="stores" /></li>
-        <li><h:link value="View all stores" outcome="stores" /></li>
-        <li><h:link value="Register" outcome="register" /></li>
-        <li><h:link value="Your details" outcome="userAccount" /></li>
-        <li><h:link value="Add store" outcome="addStores" /></li>
-      </ul>
-    </nav>
-    
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
     <div class="wrapper">
       <div class="single-product">
         <h:graphicImage value="resources/images/productImages/#{product.productDetails.imageName}" alt="image alt text" width="300"/>
         <h2><h:outputText value="#{product.productDetails.productName}"/></h2>
-        <h5><h:outputText value="#{product.productDetails.price}"/></h5>
+        <h5><h:outputText value="£ #{product.productDetails.price}"/></h5>
 
-        <h:form>
-          <h:commandButton value="Add to cart" />
+        <h:form class="addToCart flex">
+          <div class="inputField">
+            <label for="quantity"><h:outputText value="Quantity"/></label>
+            <h:inputText value="#{addProduct.quantity}" id="quantity" a:type="number"/>
+          </div>
+
+          <h:commandButton value="Add to cart" action="#{cart.addToCart(crt)}"/>
         </h:form>
       </div>
     </div>
-  </h:body>
-</html>
+  </ui:define>
+</ui:composition>

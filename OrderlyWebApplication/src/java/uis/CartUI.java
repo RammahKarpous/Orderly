@@ -9,11 +9,11 @@ public class CartUI {
   
   private CartManager cartMngr = new CartManager();
   
-  public ArrayList<CartDTO> addContentsToCart(CartDTO cart)
+  public ArrayList<CartDTO> addContentsToCart(CartDTO crt)
   {
-    if (cartMngr.addToCart(cart))
+    if (cartMngr.addToCart(crt))
     {
-      return cartMngr.findCartContents(cart.getId(), cart.getCustomerId(), cart.getProductId(), cart.getQuantity(), cart.getSubTotal());
+      return cartMngr.findCartContents(crt.getId(), crt.getCustomerId(), crt.getProductId(), crt.getQuantity(), crt.getSubTotal());
     }
     
     return null;

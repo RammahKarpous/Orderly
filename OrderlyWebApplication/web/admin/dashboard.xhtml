@@ -1,0 +1,34 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f = "http://java.sun.com/jsf/core"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <div class="wrapper">
+      <h1>Dashboard</h1>
+      
+      <div class="wrapper grid grid-3">
+        <div class="center card">
+          <h2><h:outputText value="#{customer.allCustomers.size()}"/></h2>
+          <h3>Customers registered</h3>
+          <h:link value="View customers" class="button" outcome="customers" />
+        </div>
+        
+        <div class="center card">
+          <h2><h:outputText value="#{store.allStores.size()}"/></h2>
+          <h3>Stores registered</h3>
+          <h:link value="View all stores" class="button" outcome="stores" />
+        </div>
+        
+        <div class="center card">
+          <h2><h:outputText value="#{product.allProducts.size()}"/></h2>
+          <h3>Products added</h3>
+          <h:link value="View all Products" class="button" outcome="products" />
+        </div>
+      </div>
+    </div>
+  </ui:define>
+</ui:composition>

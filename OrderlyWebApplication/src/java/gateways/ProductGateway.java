@@ -76,16 +76,16 @@ public class ProductGateway {
   }
 
   // FIND PRODUCTS BY STORE ID
-  public ArrayList<ProductDTO> findProductsByStoreId(StoreDTO storeId) {
+  public ArrayList<ProductDTO> findProductsByStoreId(int id) {
     ArrayList<ProductDTO> allProducts = new ArrayList<>();
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
       Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
 
-      String getProductDetails = "SELECT * FROM products NATURAL JOIN stores WHERE storeId = ?";
+      String getProductDetails = "SELECT * FROM products JOIN storeName stores USING stpreId = ?";
       PreparedStatement statement = conn.prepareStatement(getProductDetails);
-      statement.setObject(1, storeId);
+      statement.setInt(1, id);
 
       ResultSet result = statement.executeQuery();
 
@@ -111,7 +111,8 @@ public class ProductGateway {
   }
 
   // FIND ONE PRODUCT
-  public ProductDTO findProductById(int id) {
+  public ProductDTO findProductById(int id) 
+  {
     ProductDTO productDetails = null;
 
     try {
@@ -178,8 +179,33 @@ public class ProductGateway {
 
     return productDetails;
   }
+  
+  public void update(ProductDTO product, int id)
+  {
+    try {
+        DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly-db", "dbUsername", "welkom01");
 
-  public void delete(int id) {
+        PreparedStatement statement = conn.prepareStatement("UPDATE products SET productName = ?, imageName = ?, quantity = ?, price = ? WHERE id = ?");
+        
+        statement.setString(1, product.getProductName());
+        statement.setString(2, product.getImageName());
+        statement.setInt(3, product.getQuantity());
+        statement.setDouble(4, product.getQuantity());
+        statement.setInt(5, id);
+        
+        statement.executeUpdate();
+
+        statement.close();
+        conn.close();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+  }
+
+  public void delete(int id) 
+  {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());

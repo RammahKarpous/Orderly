@@ -1,0 +1,53 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f = "http://java.sun.com/jsf/core"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <div class="wrapper">
+      <h1>Registered customers</h1>
+      
+      <h:dataTable var="cus" value="#{customer.allCustomers}" columnClasses="row" styleClass="wrapper" style="text-align: left;">
+        <h:column>
+          <f:facet name="header">First name</f:facet>
+          <h:outputText value="#{cus.firstName}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">Last name</f:facet>
+          <h:outputText value="#{cus.lastName}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">Email address</f:facet>
+          <h:outputText value="#{cus.emailAddress}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">Address</f:facet>
+          <h:outputText value="#{cus.address}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">City</f:facet>
+          <h:outputText value="#{cus.city}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">Postcode</f:facet>
+          <h:outputText value="#{cus.postcode}" />
+        </h:column>
+        
+        <h:column>
+          <f:facet name="header">Action</f:facet>
+          <h:form>
+            <h:commandLink class="button" action="#{customer.deleteCustomer(cus.id)}" value="Delete customer"/>
+          </h:form>
+        </h:column>
+      </h:dataTable>
+    </div>
+  </ui:define>
+</ui:composition>

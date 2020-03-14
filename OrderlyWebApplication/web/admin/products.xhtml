@@ -1,0 +1,83 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f = "http://java.sun.com/jsf/core"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <main class="wrapper">
+    
+      <h:form id="addProduct">
+        <h1>Add new product</h1>
+        <div class="grid grid-2">
+          <div class="inputField">
+            <label for="productImage"><h:outputText value="Product image name" /></label>
+            <h:selectOneListbox value="#{addProduct.imageName}" id="productImage" class="productImages">
+              <ui:include src="../includes/products.xhtml" />
+            </h:selectOneListbox>
+            <h:message for="productImage" />
+          </div>
+
+          <div>
+            <div class="inputField">
+              <label for="store"><h:outputText value="Store name" /></label>
+              <h:selectOneMenu value="#{addProduct.storeId}" class="store" required="true">
+                <f:selectItem itemDisabled="true" a:selected="true" itemLabel="Please select a store" />
+                <f:selectItems value="#{store.getAllStores()}" var="str" itemValue="#{str.id}" itemLabel="#{str.storeName}" />
+              </h:selectOneMenu>
+            </div>
+
+            <div class="inputField">
+              <label for="productName"><h:outputText value="Product name" /></label>
+              <h:inputText id="productName" value="#{addProduct.productName}" a:placeholder="e.g. Apples, Bananas" required="true" />
+            </div>
+            
+            <div class="grid grid-4">
+              <div class="inputField">
+                <label for="quantity"><h:outputText value="Quantity" /></label>
+                <h:inputText id="quantity" value="#{addProduct.quantity}" a:type="number" required="true" />
+              </div>
+
+              <div class="inputField">
+                <label for="price"><h:outputText value="Price" /></label>
+                <h:inputText id="price" value="#{addProduct.price}" required="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inputField">
+          <h:commandButton value="Add product" type="submit" action="#{addProduct.addProduct()}" />
+        </div>
+      </h:form>
+    
+      <h1>All products</h1>
+      <div class="grid grid-4">
+        <ui:repeat value="#{product.allProducts}" var="prod">
+          
+          <div class="product">
+            <h:form>
+              <h:commandLink action="#{product.fetchProductDetails(prod.id)}">
+                <h:outputText value="#{prod.storeId}" />
+                <h:graphicImage value="../resources/images/productImages/#{prod.imageName}" alt="image alt text" width="300"/>
+                
+                <div class="namePrice flex">
+                  <h2><h:outputText value="#{prod.productName}"/></h2>
+                  <h4><h:outputText value="£ #{prod.price}"/></h4>
+                </div>
+                
+              </h:commandLink>
+            </h:form>
+            
+            <h:form class="deleteUpdate flex">              
+              <h:commandButton value="Delete product" action="#{product.deleteProduct(prod.id)}"/>
+              <h:commandLink value="Update product" action="#{updateProducts.updateProduct}"/>
+            </h:form>
+          </div>
+        </ui:repeat>
+      </div>
+    </main>
+  </ui:define>
+</ui:composition>
+

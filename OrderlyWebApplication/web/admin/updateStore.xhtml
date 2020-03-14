@@ -1,0 +1,41 @@
+<ui:composition template="../templates/admin-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | All stores</ui:define>
+  <ui:define name="content">
+    <div class="wrapper">
+      <h1>Update store</h1>
+      <h:link value="Back" outcome="stores" />
+      <h:form id="registerStore">
+
+        <div class="inputField">
+          <label for="storeName"><h:outputText value="Store name" /></label>
+          <h:inputText id="storeName" value="#{addStore.storeName}" />
+        </div>
+
+        <div class="inputField">
+          <label for="address"><h:outputText value="Address" /></label>
+          <h:inputText id="address" value="#{addStore.address}" a:placeholder="e.g. 47 Billy Road" />
+        </div>
+
+        <div class="inputField">
+          <label for="city"><h:outputText value="city" /></label>
+          <h:inputText id="city" value="#{addStore.city}" />
+        </div>
+
+        <div class="inputField">
+          <label for="postcode"><h:outputText value="postcode" /></label>
+          <h:inputText id="postcode" value="#{addStore.postcode}" />
+        </div>
+
+        <div class="inputField">
+          <h:commandButton value="Update store" type="submit" action="#{store.updateStore(store)}" />
+          <h:link value="Cancel" outcome="stores" />
+        </div>
+      </h:form>
+    </div>
+  </ui:define>
+</ui:composition>

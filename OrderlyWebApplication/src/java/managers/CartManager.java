@@ -15,8 +15,8 @@ public class CartManager {
     return gateway.find(id, customerId, productId, quantity, subTotal);
   }
   
-  public boolean addToCart(CartDTO cart)
+  public boolean addToCart(CartDTO crt)
   {
-    return gateway.add(cart);
+    return gateway.add(crt);
   }
 }

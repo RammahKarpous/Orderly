@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CartGateway {
-  public boolean add(CartDTO cart)
+  public boolean add(CartDTO crt)
   {
     boolean contentsAdded = false;
     
@@ -21,11 +21,11 @@ public class CartGateway {
       
       PreparedStatement statement = conn.prepareStatement("INSERT INTO cart (id, customerId, productId, quantity, subTotal)");
       
-      statement.setInt(1, cart.getId());
-      statement.setObject(2, cart.getCustomerId());
-      statement.setObject(3, cart.getProductId());
-      statement.setInt(4, cart.getQuantity());
-      statement.setDouble(5, cart.getSubTotal());
+      statement.setInt(1, crt.getId());
+      statement.setObject(2, crt.getCustomerId());
+      statement.setObject(3, crt.getProductId());
+      statement.setInt(4, crt.getQuantity());
+      statement.setDouble(5, crt.getSubTotal());
       
       int rows = statement.executeUpdate();
       

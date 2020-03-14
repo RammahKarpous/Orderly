@@ -21,4 +21,19 @@ public class StoreManager {
   {
     return gateway.insert(store);
   }
+  
+  public StoreDTO getStoreDetailsById(int id)
+  {
+    return gateway.findStoreById(id);
+  }
+  
+  public void remove(int id)
+  {
+     gateway.delete(id);
+  }
+  
+  public StoreDTO updateStore(StoreDTO store)
+  {
+     return gateway.update(store);
+  }
 }

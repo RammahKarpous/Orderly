@@ -1,31 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-  <head>
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-  <h:body>
-    <h:link value="Home" outcome="index"/>
-    
-    <h:form id="registerUser">
+<ui:composition template="templates/guest-template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <ui:define name="title">Orderly | Login</ui:define>
+  <ui:define name="content">
+    <h:form id="loginUser" class="narrow-wrapper form">
       <h1>Login</h1>
-      <div class="inputField">
-        <label for="emailAddress"><h:outputText value="Email address" /></label>
-        <h:inputText id="emailAddress" value="#{login.emailAddress}" />
-        <h:message for="emailAddress" />
+      <div class="grid grid-2">
+        <div class="inputField">
+          <label for="emailAddress"><h:outputText value="Email address" /></label>
+          <h:inputText id="emailAddress" value="#{login.emailAddress}" />
+          <h:message for="emailAddress" />
+        </div>
+
+        <div class="inputField">
+          <label for="password"><h:outputText value="Password" /></label>
+          <h:inputSecret id="password" value="#{login.password}" />
+          <h:message for="password" />
+        </div>
       </div>
-      
       <div class="inputField">
-        <label for="password"><h:outputText value="Password" /></label>
-        <h:inputSecret id="password" value="#{login.password}" />
-        <h:message for="password" />
-      </div>
-      
-      <div class="inputField">
-        <h:commandButton value="Register" type="submit" action="#{login}" />
+        <h:commandButton value="Register" type="submit" action="#{login.checkCredentials()}" />
       </div>
     </h:form>
-  </h:body>
-</html>
+  </ui:define>
+</ui:composition>
