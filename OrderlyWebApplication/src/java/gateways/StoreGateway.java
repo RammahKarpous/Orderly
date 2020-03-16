@@ -16,7 +16,7 @@ public class StoreGateway {
     try
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       String getStoreDetails = "SELECT * FROM stores";
       PreparedStatement statement = conn.prepareStatement(getStoreDetails);
@@ -56,7 +56,7 @@ public class StoreGateway {
     try
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       String getStoreDetails = "SELECT * FROM stores";
       PreparedStatement statement = conn.prepareStatement(getStoreDetails);
@@ -96,7 +96,7 @@ public class StoreGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
 
       String getProduct = "SELECT * FROM stores WHERE id = ?";
 
@@ -131,7 +131,7 @@ public class StoreGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       PreparedStatement statement = conn.prepareCall("INSERT INTO stores (storeName, address, city, postcode) VALUES(?, ?, ?, ?)");
       
