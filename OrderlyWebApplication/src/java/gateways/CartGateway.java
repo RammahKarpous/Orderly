@@ -17,7 +17,7 @@ public class CartGateway {
     
     try {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       PreparedStatement statement = conn.prepareStatement("INSERT INTO cart (id, customerId, productId, quantity, subTotal)");
       
@@ -47,7 +47,7 @@ public class CartGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       String pullCart = "SELECT * FROM cart WHERE customerId = ?";
       

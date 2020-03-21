@@ -54,7 +54,7 @@ public class CustomerGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       PreparedStatement statement = conn.prepareStatement("INSERT INTO customers (firstName, lastName, emailAddress, password, address, city, postcode) VALUES(?, ?, ?, ?, ?, ?, ?)");
       
@@ -85,7 +85,7 @@ public class CustomerGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
       
       String selectAll = "SELECT * FROM customers";
       PreparedStatement statement = conn.prepareStatement(selectAll);
@@ -125,7 +125,7 @@ public class CustomerGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "oderlyAdmin", "oderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
 
       String deleteProd = "DELETE FROM customers WHERE id = ?";
       PreparedStatement statement = conn.prepareStatement(deleteProd);
