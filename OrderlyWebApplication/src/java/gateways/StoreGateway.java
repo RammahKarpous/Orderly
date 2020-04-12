@@ -16,7 +16,7 @@ public class StoreGateway {
     try
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
       
       String getStoreDetails = "SELECT * FROM stores";
       PreparedStatement statement = conn.prepareStatement(getStoreDetails);
@@ -56,7 +56,7 @@ public class StoreGateway {
     try
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
       
       String getStoreDetails = "SELECT * FROM stores";
       PreparedStatement statement = conn.prepareStatement(getStoreDetails);
@@ -96,7 +96,7 @@ public class StoreGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
 
       String getProduct = "SELECT * FROM stores WHERE id = ?";
 
@@ -131,7 +131,7 @@ public class StoreGateway {
     try 
     {
       DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
       
       PreparedStatement statement = conn.prepareCall("INSERT INTO stores (storeName, address, city, postcode) VALUES(?, ?, ?, ?)");
       
@@ -160,7 +160,7 @@ public class StoreGateway {
 
     try {
       DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+      Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
       
       String deleteProducts = "DELETE FROM products WHERE storeId = ?";
       String deleteProd = "DELETE FROM stores WHERE id = ?";
@@ -187,7 +187,7 @@ public class StoreGateway {
     
     try {
         DriverManager.registerDriver( new org.apache.derby.jdbc.ClientDriver() );
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Orderly", "orderlyAdmin", "orderly1234");
+        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/orderly_db", "username", "password");
 
         PreparedStatement statement = conn.prepareStatement("UPDATE stores SET storeName = ?, address = ?, CITY = ?, city = ?, postcode = ? WHERE id = ?");
         
